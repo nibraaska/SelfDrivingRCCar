@@ -3,7 +3,7 @@ import time
 import urllib.request
 import os.path
 import sys
-import car
+from car import forwardDrive,forwardTurnLeft, forwardTurnRight 
 
 DOCUMENT_ROOT = ''
 
@@ -25,6 +25,13 @@ try:
         request = c.recv(4096)
         if(request != NULL):
             print ("Message: "+request.decode('utf-8'))
+            str=request.decode('utf-8')
+            if(str == "1000"):
+                forwardDrive()
+            if(str == "1001"):
+                forwardTurnRight()
+            if(str == "1010"):
+                forwardTurnLeft()
         #request.decode is how we grab
         
         
