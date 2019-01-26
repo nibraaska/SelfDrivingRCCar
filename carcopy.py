@@ -35,7 +35,7 @@ try:
             if(str == "0100"):
                 reverse()
             else:
-		print(str)
+                print(str)
         #request.decode is how we grab
         
         
