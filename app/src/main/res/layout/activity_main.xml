@@ -9,8 +9,8 @@
 
     <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:id="@+id/joystickView_left"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="289dp"
+        android:layout_height="304dp"
         android:layout_alignParentBottom="true"
         android:layout_margin="32dp"
         android:layout_marginStart="8dp"
