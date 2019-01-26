@@ -6,8 +6,8 @@ from time import sleep
 PWM_FORWARD_LEFT_PIN = 26	# IN1 - Forward Drive
 PWM_REVERSE_LEFT_PIN = 19	# IN2 - Reverse Drive
 # Motor B, Right Side GPIO CONSTANTS
-PWM_FORWARD_RIGHT_PIN = 13	# IN1 - Left Drive
-PWM_REVERSE_RIGHT_PIN = 6	# IN2 - Right Drive
+PWM_FORWARD_RIGHT_PIN = 13	# IN1 - Forward Drive
+PWM_REVERSE_RIGHT_PIN = 6	# IN2 - Reverse Drive
  
 # Initialise objects for H-Bridge PWM pins
 # Set initial duty cycle to 0 and frequency to 1000
@@ -24,10 +24,34 @@ def allStop():
 	forwardRight.value = 0
 	reverseRight.value = 0
  
-def forward():
+def forwardDrive():
+	forwardLeft.value = 1.0
+	reverseLeft.value = 0
+	forwardRight.value = 1.0
+	reverseRight.value = 0
+ 
+def reverseDrive():
+	forwardLeft.value = 0
+	reverseLeft.value = 1.0
+	forwardRight.value = 0
+	reverseRight.value = 1.0
+ 
+def spinLeft():
+	forwardLeft.value = 0
+	reverseLeft.value = 1.0
+	forwardRight.value = 1.0
+	reverseRight.value = 0
+ 
+def SpinRight():
 	forwardLeft.value = 1.0
 	reverseLeft.value = 0
 	forwardRight.value = 0
+	reverseRight.value = 1.0
+ 
+def forwardTurnLeft():
+	forwardLeft.value = 0.2
+	reverseLeft.value = 0
+	forwardRight.value = 0.8
 	reverseRight.value = 0
  
 def forwardTurnRight():
@@ -50,7 +74,22 @@ def reverseTurnRight():
  
 def main():
 	allStop()
-	forward()
+	forwardDrive()
+	sleep(5)
+	reverseDrive()
+	sleep(5)
+	spinLeft()
+	sleep(5)
+	SpinRight()
+	sleep(5)
+	forwardTurnLeft()
+	sleep(5)
+	forwardTurnRight()
+	sleep(5)
+	reverseTurnLeft()
+	sleep(5)
+	reverseTurnRight()
+	sleep(5)
 	allStop()
  
  
