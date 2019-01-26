@@ -16,14 +16,17 @@ public class MainActivity extends AppCompatActivity {
     public static int CONNECTION_LOST;
     public SocketClientThread socketClient;
     public String host = "10.82.35.212";
-    public int port = 5000;
+    public int port = 80;
     public int test = 10;
+
     //10.82.35.212;5000
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //
+        final Controller1 controller = new Controller1();
+        //
         socketClient = new SocketClientThread(host, port);
 
         final TextView TVangle = (TextView) findViewById(R.id.angleVal);
@@ -39,25 +42,8 @@ public class MainActivity extends AppCompatActivity {
                 TVangle.setText("ANGLE:" + String.valueOf(angle));
                 TVstrength.setText("STRENGTH:" + String.valueOf(strength));
 
-                if((angle > 250) && (angle < 290)){
-                    TVangle.setText(-1 + "");
-                    TVangle.setTextSize(20);
-                }
+                controller.control(angle);
 
-                if((angle > 75) && (angle < 110)){
-                    TVangle.setText(1 + "");
-                    TVangle.setTextSize(20);
-                }
-
-                if((angle > 165) && (angle < 205)){
-                    TVangle.setText(-1 + "");
-                    TVangle.setTextSize(20);
-                }
-
-                if((angle > 345) || (angle < 15)){
-                    TVangle.setText(1 + "");
-                    TVangle.setTextSize(20);
-                }
 
             }
         });

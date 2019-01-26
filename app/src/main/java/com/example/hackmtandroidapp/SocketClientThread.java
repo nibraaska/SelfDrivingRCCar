@@ -5,8 +5,11 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
+
 //10.82.35.212;5000
 public class SocketClientThread extends Thread {
     private String host;
@@ -29,9 +32,16 @@ public class SocketClientThread extends Thread {
     {
         try
         {
-            socket = new Socket();
-            socket.connect(new InetSocketAddress(host, port), 1000);
-            Log.i("Car","Connected to " + host + " port " + port);
+            InetSocketAddress address = new InetSocketAddress(host, port);
+            InetAddress servAddress = InetAddress.getByName(host);
+            //String address =  host+":"+port;
+            socket = new Socket(servAddress,port);
+            if(address != null) {
+                socket.connect(address, 1000);
+                Log.i("Car", "Connected to " + host + " port " + port);
+            }else{
+                Log.i("Tag", "This shouldn't happen");
+            }
         }
         catch (IOException e)
         {
