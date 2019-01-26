@@ -51,7 +51,13 @@ def forwardTurnRight():
 	reverseLeft.value = 0
 	forwardRight.value = 0
 	reverseRight.value = 1.0
- 
+
+def reverse():
+        forwardLeft.value=0
+        reverseLeft.value=0.2
+        forwardRight.value = 0
+        reverseRight.value = 0
+        
 def main():
 	allStop()
 	forwardDrive()

@@ -3,7 +3,7 @@ import time
 import urllib.request
 import os.path
 import sys
-from car import forwardDrive,forwardTurnLeft, forwardTurnRight 
+from car import forwardDrive,forwardTurnLeft, forwardTurnRight, reverse 
 
 DOCUMENT_ROOT = ''
 
@@ -32,6 +32,8 @@ try:
                 forwardTurnRight()
             if(str == "1010"):
                 forwardTurnLeft()
+            if(str == "0100"):
+                reverse()
         #request.decode is how we grab
         
         
