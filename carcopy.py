@@ -3,7 +3,7 @@ import time
 import urllib.request
 import os.path
 import sys
-from car import forwardDrive,forwardTurnLeft, forwardTurnRight, reverse 
+from car import forwardDrive,forwardTurnLeft, forwardTurnRight, reverse, allStop
 
 DOCUMENT_ROOT = ''
 
@@ -23,25 +23,27 @@ try:
     
     while True:
         request = c.recv(4096)
-        if(request != NULL):
-            print ("Message: "+request.decode('utf-8'))
+        if(request != None):
+            #print ("Message: "+request.decode('utf-8'))
             str=request.decode('utf-8')
+            if(str != ""):
+                print(str)
             if(str == "1000"):
                 forwardDrive()
-            if(str == "1001"):
+            elif(str == "1001"):
                 forwardTurnRight()
-            if(str == "1010"):
+            elif(str == "1010"):
                 forwardTurnLeft()
-            if(str == "0100"):
-                reverse()
+            #if(str == "0100"):
+            #    reverse()
             else:
-                print(str)
+                allStop()
         #request.decode is how we grab
         
-        
-     #   c.close()
+    c.close()
        # print("Connection done")
-except:
-    print("Error")
+except BaseException as error:
+    #c.close()
+    print(error)
 
 s.close()
