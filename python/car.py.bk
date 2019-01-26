@@ -1,0 +1,102 @@
+qfrom gpiozero import PWMOutputDevice
+from time import sleep
+ 
+#///////////////// Define Motor Driver GPIO Pins /////////////////
+# Motor A, Left Side GPIO CONSTANTS
+PWM_FORWARD = 26	# IN1 - Forward Drive
+PWM_REVERSE = 19	# IN2 - Reverse Drive
+# Motor B, Right Side GPIO CONSTANTS
+PWM_LEFT_TURN = 13	# IN1 - Forward Drive
+PWM_RIGHT_TURN = 6	# IN2 - Reverse Drive
+ 
+# Initialise objects for H-Bridge PWM pins
+# Set initial duty cycle to 0 and frequency to 1000
+forward = PWMOutputDevice(PWM_FORWARD, True, 0, 1000)
+reverse = PWMOutputDevice(PWM_REVERSE, True, 0, 1000)
+ 
+left = PWMOutputDevice(PWM_LEFT_TURN, True, 0, 1000)
+right = PWMOutputDevice(PWM_RIGHT_TURN, True, 0, 1000)
+ 
+ 
+def forward():
+	forward.value = 1.0
+	reverse.value = 0
+	left.value = 0
+	right.value = 0
+	print("here")
+def left():
+	left.value=1
+	forward.value=.3
+
+def right():
+	right.value=1
+	forward.value=.3
+
+
+def allStop():
+	forwardLeft.value = 0
+	reverseLeft.value = 0
+	forwardRight.value = 0
+	reverseRight.value = 0
+ 
+def forwardDrive():
+	forwardLeft.value = 0.0  #forward 
+	reverseLeft.value = 0.0   #reverse
+	forwardRight.value =1.0  #left
+	reverseRight.value = 0.0 #right
+ 
+def reverseDrive():
+	forwardLeft.value = 0
+	reverseLeft.value = 1.0
+	forwardRight.value = 0
+	reverseRight.value = 1.0
+ 
+def spinLeft():
+	forwardLeft.value = 0
+	reverseLeft.value = 1.0
+	forwardRight.value = 1.0
+	reverseRight.value = 0
+ 
+def SpinRight():
+	forwardLeft.value = 1.0
+	reverseLeft.value = 0
+	forwardRight.value = 0
+	reverseRight.value = 1.0
+ 
+def forwardTurnLeft():
+	forwardLeft.value = 0.2
+	reverseLeft.value = 0
+	forwardRight.value = 0.8
+	reverseRight.value = 0
+ 
+def forwardTurnRight():
+	forwardLeft.value = 0.8
+	reverseLeft.value = 0
+	forwardRight.value = 0.2
+	reverseRight.value = 0
+ 
+def reverseTurnLeft():
+	forwardLeft.value = 0
+	reverseLeft.value = 0.2
+	forwardRight.value = 0
+	reverseRight.value = 0.8
+ 
+def reverseTurnRight():
+	forwardLeft.value = 0
+	reverseLeft.value = 0.8
+	forwardRight.value = 0
+	reverseRight.value = 0.2
+ 
+def main():
+	forward()
+	sleep(5)
+	left()
+	sleep(5)
+	right()
+	sleep(5)
+
+ 
+ 
+if __name__ == "__main__":
+    """ This is executed when run from the command line """
+    main()
