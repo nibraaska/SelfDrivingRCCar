@@ -17,6 +17,16 @@ reverseLeft = PWMOutputDevice(PWM_REVERSE_LEFT_PIN, True, 0, 1000)
 forwardRight = PWMOutputDevice(PWM_FORWARD_RIGHT_PIN, True, 0, 1000)
 reverseRight = PWMOutputDevice(PWM_REVERSE_RIGHT_PIN, True, 0, 1000)
  
+
+def move(one_hot):
+	if(one_hot[0]==1):
+		forwardLeft.value = .19
+	reverseLeft.value = 0
+	if(one_hot[2]==1):
+		forwardRight.value = 1
+	if(one_hot[3]==1):
+		reverseRight.value = 1
+
  
 def allStop():
 	forwardLeft.value = 0
