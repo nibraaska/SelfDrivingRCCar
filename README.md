@@ -37,9 +37,15 @@ Near the end of the project, our servo that controlled the turns was no longer a
 
 # THE TEAM
 Josiah Rininger 
+
 Nibraas Khan
+
 Michael McComas
+
 Arif Bashar
+
 Elijah Dangerfield
+
 George Boktor
+
 Dylan Spies
