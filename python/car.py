@@ -20,7 +20,7 @@ reverseRight = PWMOutputDevice(PWM_REVERSE_RIGHT_PIN, True, 0, 1000)
 
 def move(one_hot):
 #	if(one_hot[0]==1):
-	forwardLeft.value = .3
+	forwardLeft.value = 1.0
 	reverseLeft.value = 0
 	if(one_hot[2]==1):
 		forwardRight.value = 1
