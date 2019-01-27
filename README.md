@@ -36,16 +36,16 @@ Near the end of the project, our servo that controlled the turns was no longer a
 
 
 # THE TEAM
-Josiah Rininger 
+Josiah Rininger (Junior)
 
-Nibraas Khan
+Nibraas Khan (Junior)
 
-Michael McComas
+Michael McComas (Sophomore)
 
-Arif Bashar
+Arif Bashar (Sophomore)
 
-Elijah Dangerfield
+Elijah Dangerfield (Junior)
 
-George Boktor
+George Boktor (Sophomore)
 
-Dylan Spies
+Dylan Spies (Junior)
