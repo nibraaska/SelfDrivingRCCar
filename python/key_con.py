@@ -9,7 +9,7 @@ def key_input(event):
 	sleep_time = 0.030
 	if(key_press.lower() =='w'):
 		car.move([1,0,0,0])
-		sleep(1)
+		sleep(0.03)
 		command.bind('<KeyRelease-w>', car.allStop())
 	elif(key_press.lower() == 'a'):
 		car.move([1,0,1,0])
