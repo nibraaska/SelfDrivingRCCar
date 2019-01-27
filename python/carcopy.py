@@ -4,6 +4,7 @@ import urllib.request
 import os.path
 import sys
 from car import forwardDrive,forwardTurnLeft, forwardTurnRight, reverse, allStop
+from camera import pic
 
 DOCUMENT_ROOT = ''
 
@@ -20,11 +21,11 @@ s.listen(10)
 try:
     c, addr = s.accept()
     print("Got connection from"+str(addr))
-    
+    f = open ('train.txt' , 'w')
     while True:
         request = c.recv(4096)
         if(request != None):
-            #print ("Message: "+request.decode('utf-8'))
+           # print ("Message: "+request.decode('utf-8'))
             str=request.decode('utf-8')
             if(str != ""):
                 print(str)
@@ -39,7 +40,7 @@ try:
             else:
                 allStop()
         #request.decode is how we grab
-        
+
     c.close()
        # print("Connection done")
 except BaseException as error:
